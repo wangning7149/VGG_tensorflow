@@ -13,7 +13,6 @@ import os.path
 import math
 import numpy as np
 import tensorflow as tf
-
 import input_data
 import VGG
 import tools
@@ -24,14 +23,14 @@ IMG_H = 32
 N_CLASSES = 10
 BATCH_SIZE = 32
 learning_rate = 0.01
-MAX_STEP = 15000
+MAX_STEP = 1000
 IS_PRETRAIN = True
 
 
 def train():
 
     # pre_trained_weights = './VGG16_pretrain/vgg16.npy'
-    data_dir = '/home/yuxin/data/cifar10_data/'
+    data_dir = './'
     train_log_dir = './logs2/train/'
     val_log_dir = './logs2/val/'
 
@@ -155,3 +154,5 @@ def evaluate():
             finally:
                 coord.request_stop()
                 coord.join(threads)
+
+train()

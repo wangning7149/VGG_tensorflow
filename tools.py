@@ -34,6 +34,7 @@ def conv(layer_name, x, out_channels, kernel_size=None, stride=None, is_pretrain
                             dtype=tf.float32,
                             initializer=tf.constant_initializer(0.0),
                             trainable=is_pretrain)
+
         x = tf.nn.conv2d(x, w, stride, padding='SAME', name='conv')
         x = tf.nn.bias_add(x, b, name='bias_add')
         x = tf.nn.relu(x, name='relu')
